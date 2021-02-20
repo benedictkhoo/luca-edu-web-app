@@ -2,6 +2,7 @@ import icMessage from '!!raw-loader!../../assets/ic-message.svg';
 import icThumbsDown from '!!raw-loader!../../assets/ic-thumbs-down.svg';
 import icThumbsUp from '!!raw-loader!../../assets/ic-thumbs-up.svg';
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatButtonModule } from '@angular/material/button';
@@ -11,18 +12,21 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { DomSanitizer } from '@angular/platform-browser';
 import { CommunityRoutingModule } from './community-routing.module';
 import { CommunityComponent } from './community.component';
+import { QuestionService } from './question.service';
 
 @NgModule({
   declarations: [CommunityComponent],
   imports: [
     CommonModule,
+    HttpClientModule,
     CommunityRoutingModule,
     MatBadgeModule,
     MatButtonModule,
     MatIconModule,
     MatListModule,
     MatTabsModule
-  ]
+  ],
+  providers: [QuestionService]
 })
 export class CommunityModule {
   constructor(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer) {

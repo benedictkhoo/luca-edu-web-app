@@ -16,28 +16,36 @@
   </mat-tab-group>
   
   <mat-list>
-    <mat-list-item>
+    <mat-list-item *ngFor="let question of questions">
       <mat-icon matListIcon>account_circle</mat-icon>
 
       <div class="mat-line-header" matLine>
-        <h3>Cuales son los multiplos del 7? Cuales son los multiplos del 7?</h3>
+        <h3>{{ question.title }}</h3>
 
         <span class="spacer"></span>
 
-        <mat-icon svgIcon="ic_message" matBadge="50"></mat-icon>
+        <mat-icon svgIcon="ic_message" [matBadge]="question.comments"></mat-icon>
       </div>
 
       <p matLine>
-        <span>La verdad no me queda claro queles son los multiplos del 7 parque...</span>
+        <span>{{ question.content }}</span>
       </p>
 
       <div class="mat-line-footer" matLine>
         <button mat-icon-button>
-          <mat-icon svgIcon="ic_thumbs_up"></mat-icon>
+          <mat-icon *ngIf="question.liked; else likeOff">thumb_up</mat-icon>
+
+          <ng-template #likeOff>
+            <mat-icon svgIcon="ic_thumbs_up"></mat-icon>
+          </ng-template>
         </button>
 
         <button mat-icon-button>
-          <mat-icon svgIcon="ic_thumbs_down"></mat-icon>
+          <mat-icon *ngIf="question.disliked; else dislikeOff">thumb_down</mat-icon>
+
+          <ng-template #dislikeOff>
+            <mat-icon svgIcon="ic_thumbs_down"></mat-icon>
+          </ng-template>
         </button>
 
         <span>Pergunta juan.c23 Mathematicas 6</span>
@@ -49,121 +57,11 @@
         </button>
 
         <button mat-icon-button>
-          <mat-icon>star_border</mat-icon>
-        </button>
-      </div>
-    </mat-list-item>
+          <mat-icon *ngIf="question.starred; else starOff">star</mat-icon>
 
-    <mat-list-item>
-      <mat-icon matListIcon>account_circle</mat-icon>
-
-      <div class="mat-line-header" matLine>
-        <h3>Cuales son los multiplos del 7?</h3>
-
-        <span class="spacer"></span>
-
-        <mat-icon svgIcon="ic_message" matBadge="10"></mat-icon>
-      </div>
-
-      <p matLine>
-        <span>La verdad no me queda claro queles son los multiplos del 7 parque...</span>
-      </p>
-
-      <div class="mat-line-footer" matLine>
-        <button mat-icon-button>
-          <mat-icon svgIcon="ic_thumbs_up"></mat-icon>
-        </button>
-
-        <button mat-icon-button>
-          <mat-icon svgIcon="ic_thumbs_down"></mat-icon>
-        </button>
-
-        <span>Pergunta juan.c23 Mathematicas 6</span>
-
-        <span class="spacer"></span>
-
-        <button mat-icon-button>
-          <mat-icon>share</mat-icon>
-        </button>
-
-        <button mat-icon-button>
-          <mat-icon>star_border</mat-icon>
-        </button>
-      </div>
-    </mat-list-item>
-
-    <mat-list-item>
-      <mat-icon matListIcon>account_circle</mat-icon>
-
-      <div class="mat-line-header" matLine>
-        <h3>Cuales son los multiplos del 7?</h3>
-
-        <span class="spacer"></span>
-
-        <mat-icon svgIcon="ic_message" matBadge="100"></mat-icon>
-      </div>
-
-      <p matLine>
-        <span>La verdad no me queda claro queles son los multiplos del 7 parque...</span>
-      </p>
-
-      <div class="mat-line-footer" matLine>
-        <button mat-icon-button>
-          <mat-icon svgIcon="ic_thumbs_up"></mat-icon>
-        </button>
-
-        <button mat-icon-button>
-          <mat-icon svgIcon="ic_thumbs_down"></mat-icon>
-        </button>
-
-        <span>Pergunta juan.c23 Mathematicas 6</span>
-
-        <span class="spacer"></span>
-
-        <button mat-icon-button>
-          <mat-icon>share</mat-icon>
-        </button>
-
-        <button mat-icon-button>
-          <mat-icon>star_border</mat-icon>
-        </button>
-      </div>
-    </mat-list-item>
-
-    <mat-list-item>
-      <mat-icon matListIcon>account_circle</mat-icon>
-
-      <div class="mat-line-header" matLine>
-        <h3>Cuales son los multiplos del 7?</h3>
-
-        <span class="spacer"></span>
-
-        <mat-icon svgIcon="ic_message" matBadge="1"></mat-icon>
-      </div>
-
-      <p matLine>
-        <span>La verdad no me queda claro queles son los multiplos del 7 parque...</span>
-      </p>
-
-      <div class="mat-line-footer" matLine>
-        <button mat-icon-button>
-          <mat-icon svgIcon="ic_thumbs_up"></mat-icon>
-        </button>
-
-        <button mat-icon-button>
-          <mat-icon svgIcon="ic_thumbs_down"></mat-icon>
-        </button>
-
-        <span>Pergunta juan.c23 Mathematicas 6</span>
-
-        <span class="spacer"></span>
-
-        <button mat-icon-button>
-          <mat-icon>share</mat-icon>
-        </button>
-
-        <button mat-icon-button>
-          <mat-icon>star_border</mat-icon>
+          <ng-template #starOff>
+            <mat-icon>star_border</mat-icon>
+          </ng-template>
         </button>
       </div>
     </mat-list-item>
