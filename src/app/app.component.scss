@@ -1,0 +1,41 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.mat-sidenav-container {
+  flex: 1 0 auto;
+  margin: 64px 0 0 0;
+}
+
+.mat-tab-group {
+  height: 100%;
+}
+
+.mat-toolbar {
+  position: fixed;
+}
+
+// Small. Refer to https://material.io/design/layout/responsive-layout-grid.html#breakpoints
+@media(max-width: 1023px) {
+  .mat-drawer-side, .explore-button, .search-button, .status-icons {
+    display: none;
+  }
+}
+
+// Medium and above. Refer to https://material.io/design/layout/responsive-layout-grid.html#breakpoints
+@media(min-width: 1024px) {
+  .mat-tab-group, .toolbar-title {
+    display: none;
+  }
+
+  .mat-toolbar {
+    left: 219px;
+    width: calc(100% - 219px);
+  }
+}

@@ -1,0 +1,65 @@
+.header {
+  display: flex;
+  box-sizing: border-box;
+  padding: 8px 16px 0 16px;
+  width: 100%;
+  flex-direction: row;
+  align-items: center;
+  white-space: nowrap;
+  height: 64px;
+  line-height: 32px;
+}
+
+.mat-line-header h3 {
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mat-list-base .mat-list-item.mat-3-line {
+  height: 112px;
+}
+
+.mat-list-base .mat-list-item .mat-line.mat-line-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 0 16px 0 0;
+  height: 48px;
+  line-height: 24px;
+}
+
+.mat-list-base .mat-list-item .mat-line.mat-line-footer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 0 16px;
+
+  span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+.mat-list-base .mat-list-item .mat-list-icon {
+  font-size: 48px;
+  width: 48px;
+  height: 48px;
+}
+
+// Small. Refer to https://material.io/design/layout/responsive-layout-grid.html#breakpoints
+@media(max-width: 1023px) {
+  .new-question-button {
+    display: none;
+  }
+}
+
+// Medium and above. Refer to https://material.io/design/layout/responsive-layout-grid.html#breakpoints
+@media(min-width: 1024px) {
+  .container {
+    margin: 0 auto;
+    width: 70%;
+  }
+}
